@@ -1,0 +1,122 @@
+/* עיצוב כללי */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #1e1e2f;
+    overflow-x: hidden;
+}
+
+.header, footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+}
+
+.intro {
+    text-align: center;
+    padding: 40px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.typing-animation {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #333;
+    color: #0f0;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    animation: typing 4s steps(40, end) infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.background-animation .code-line {
+    position: absolute;
+    width: 2px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.1);
+    animation: move-code-lines 10s linear infinite;
+}
+
+@keyframes move-code-lines {
+    from { transform: translateY(-100vh); }
+    to { transform: translateY(100vh); }
+}
+
+/* עיצוב פרויקטים */
+#projects {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0 20px;
+}
+
+.project-card {
+    padding: 20px;
+    background-color: #2a2a3b;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    background-color: #33334d;
+}
+
+/* מודל */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #444;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: rgb(253, 10, 10);
+}
+.project-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.modal-image {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}

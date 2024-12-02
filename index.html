@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תיק עבודות - קורס JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="background-animation">
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+        <div class="code-line"></div>
+    </div>
+
+    <header class="intro">
+        <img src="https://cdn-icons-png.flaticon.com/256/12804/12804717.png" alt="תמונת הפרופיל שלי" class="profile-pic">
+        <h1>שלום, אני מפתח אתרים ומשחקים!</h1>
+        <p>
+            שמי מתן, למדתי תכנות במכללת פרוגיקס ואני גאה להציג את הפרויקטים שפיתחתי במהלך הקורס.
+        </p>
+    </header>
+
+    <main>
+        <section id="projects">
+            <h2>המשחקים שלי</h2>
+            <div class="project-grid">
+                <!-- יצירת כרטיסים דינמית -->
+                <script>
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const grid = document.querySelector(".project-grid");
+                        Object.keys(projects).forEach(projectId => {
+                            const project = projects[projectId];
+                            const card = document.createElement("div");
+                            card.className = "project-card";
+                            card.setAttribute("onclick", `openModal('${projectId}')`);
+
+                            const image = document.createElement("img");
+                            image.src = project.image;
+                            image.alt = project.title;
+
+                            const title = document.createElement("h3");
+                            title.textContent = project.title;
+
+                            card.appendChild(image);
+                            card.appendChild(title);
+                            grid.appendChild(card);
+                        });
+                    });
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="" class="modal-image">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <a id="live-link" href="#" target="_blank">שחק עכשיו</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 - פיתוח אתרים ומשחקים | מתן</p>
+    </footer>
+</body>
+</html>
