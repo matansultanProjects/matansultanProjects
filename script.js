@@ -14,7 +14,7 @@ const projects = {
     game3: {
         title: "משחק הביטקוין",
         description: "משחק כלכלי שבו אוספים ביטקוינים תוך הימנעות ממכשולים.",
-        link: "https://live-game3.com",
+        link: "Bitgame.html",
         image: "2.png"
     },
     game4: {

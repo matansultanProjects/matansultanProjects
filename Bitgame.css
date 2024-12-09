@@ -1,0 +1,23 @@
+.bubble{
+    width: 70px;
+    position: absolute;
+    user-select: none;
+    animation-name: goUp;
+    animation-duration: 30s;
+    animation-fill-mode: forwards;
+
+
+}
+
+@keyframes goUp {
+    0%{transform: translateY(0);}
+    100%{transform: translateY(-1500px);}
+    
+}
+body{
+    user-select: none;
+background-color: burlywood;
+color: red;
+    background-repeat: no-repeat;
+    background-size: c;
+}

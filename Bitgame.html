@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק הבועות </title>
+    <link rel="stylesheet" href="Bitgame.css"><!--כאן יהיה קישור לקובץ   ה CSS ת  -->
+</head>
+<body>
+    <h1 id="scoreId">score: </h1>
+<div id="continer"></div>    <!--  כאן יהיה תמונה של המון בועות  -->
+<script>
+    //השתלטנו על תגיות המשחק : ניקוד , בועה 
+let scoreId = document.getElementById("scoreId")
+let continer = document.getElementById("continer")
+let score = 0; // משתנה שיצרנו לניקוד בשביל לסכום את הניקוד 
+   // הגרלה של מספר בין טווח מסוים 
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+function handleClick(bubble){
+    score = score + 1 // העלאת נקודה כל פעם שלוחצים על התמונה 
+    scoreId.innerHTML = "score: " + score //לעדכן את הניקוד באתר 
+    bubble.remove(); //תמחק לי את הבועה על המסך 
+}
+// פונקציה שתציג לנו את הבועות על המסך 
+function showBubble(){
+continer.innerHTML +=  ` <img 
+            onclick="handleClick(this)"
+            class="bubble" 
+            src="https://jokopost.com/wp-content/uploads/2014/03/%D7%91%D7%99%D7%98%D7%A7%D7%95%D7%99%D7%9F.png"
+            style="
+                left: ${getRandom(0, 95)}%;
+                top: ${getRandom(0, 95)}%;
+            "
+        >
+    `
+}
+// פונקציה שתוסיף לנו בועות לאתר 
+function addSomeBubble(){
+    for(let i=0 ;i<10;i++){
+        showBubble() // פונקציה שתציג לנו את הבועות על המסך 
+    }
+
+}
+setInterval(addSomeBubble,5000) // כל 5 שניות תפעיל את פונקצית הוספת בועות לאתר 
+</script>
+</body>
+</html>
