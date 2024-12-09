@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק החצים </title>
+    <link rel="stylesheet" href="Arrowgame.css">
+</head>
+<body>
+    <h1 id="scoreId">Score: 0</h1>
+
+    <p>Press the arrow in the keyboard when you see it on the screen  </p>
+    <img src="" alt="" id="arrowId">
+
+    <script>  
+   
+    // function say(){
+         
+    //         alert("hello" )
+
+    //     }
+    //    setInterval(say,4000)
+
+    let arrowId = document.getElementById("arrowId") // השתלטות על התמונה 
+    let scoreId =  document.getElementById("scoreId") //  תגית השתלטות על הניקוד 
+    let picked = 0;
+    let score = 0; // יצירת משתנה לניקוד 
+    // ArrowLeft  = 0 
+    // // Arrow Up  = 1
+    // ArrowRight = 2
+    // ArrowDown = 3 
+
+    let arrows = ["https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-arrow-left-thin.png",     // ArrowLeft 
+                "https://static.vecteezy.com/system/resources/thumbnails/000/330/671/small_2x/69_Up.jpg" ,    // // Arrow Up 
+                 "https://cdns.iconmonstr.com/wp-content/releases/preview/2018/240/iconmonstr-arrow-right-thin.png"  ,  // ArrowRight
+                  "https://cdn-icons-png.flaticon.com/512/6786/6786483.png"  // ArrowDown
+    ]
+    
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+setInterval( pickImage,3000)
+// הגרלנו מספר רנדומאלי והכנסו אותם למשתנה  בעזרתו שינינו את כתובת התמונה .
+function pickImage(){
+    picked = getRndInteger(0,3)
+    arrowId.setAttribute('src',arrows[picked])
+}
+addEventListener("keydown",checkKey)
+
+function checkKey(info){
+    let userPicked = 0;
+    if(info.key == "ArrowLeft"){
+        userPicked = 0; 
+    }
+    else if ( info.key == "ArrowUp"){
+    userPicked = 1;
+}
+else if ( info.key == "ArrowRight"){
+    userPicked = 2;
+}
+else if ( info.key == "ArrowDown"){
+    userPicked = 3;
+}
+else{
+    return; // אם המשתמש לא לחץ על אחד החצים זה יצא מהפונקציה 
+
+}
+// הבדיקה הזו בודקת האם לחצתי על המקש הנכון ע"פ התמונה הנכונה 
+if(userPicked == picked ){
+    updateScore(score+1)
+}
+else{
+    updateScore(0)
+    alert("game Over")
+}
+}
+
+function updateScore(newScore) {
+score = newScore
+scoreId.innerHTML ="Score : " + score
+}
+    </script>
+</body>
+</html>
